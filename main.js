@@ -3,11 +3,38 @@
  ********************/
 
 
+const getTodoName = function (todo) {
+  return todo.text
+}
 
+const getPriority = function (todo) {
+  return todo.priority
+}
 
+const isComplete = function (todo) {
+  return todo.complete
+}
 
+const isHighPriority = function (todo) {
+  return todo.priority > 1
+}
 
+const namenUndPriority = function (todo) {
+  const result = todo.priority > 1 ? ' - High' : ' - Low'
+  return todo.text + result
+}
 
+const priority1Helper = function (todo) {
+  if (todo.priority <= 1) {
+    return todo.priority
+  }
+}
+
+const justNotHelper = function (todo) {
+  if (!todo.complete) {
+    return todo
+  } 
+}
 
 
 
@@ -16,9 +43,34 @@
  ***********************/
 
 
+const names = function (todo) {
+  return todo.map(getTodoName)
+}
 
+const priorities = function (todo) {
+  return todo.map(getPriority)
+}
 
+const namesAndPriorities = function (todo) {
+  return todo.map(namenUndPriority)
 
+}
+
+const justComplete = function (todo) {
+  return todo.filter(isComplete)
+}
+
+const priority2Only = function (todo) {
+  return todo.filter(isHighPriority)
+}
+
+const priority1Only = function (todo) {
+  return todo.filter(priority1Helper)
+}
+
+const justNotComplete = function (todo) {
+  return todo.filter(justNotHelper)
+}
 
 
 
